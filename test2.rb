@@ -1,22 +1,10 @@
-contacts = {
-	Panarin: [{
-		Name: 'Artemiy Panarin',
-		Email: 'panarin@nhl.com',
-		Phone: 395486876
-	}],
-	Poirier: [{
-		Name: 'Dustin Poirier',
-		Email: 'poirier@ufc.com',
-		Phone: 374784678
-	}],
-	Robbie: [{
-		Name: 'Margot Robbie',
-		Email: 'robbie@actress.com',
-		Phone: 364143976
-	}],
-}
+def launch(options={})
+	angle = options[:angle_count] || 90
+	astronauts = options[[:belka, :strelka]] || [:belka, :strelka]
+	delay = options[:delay_count] || 5
+	#(a * 410) + (b * 58) + (c * 45) + 29
+end
 
-print "Enter last name: "
-last_name = gets.strip 
+x = launch(angle_count: 100, delay_count: 10)
 
-puts contacts[:Panarin]
+launch
