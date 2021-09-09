@@ -2,8 +2,10 @@ str = 'the quick brown fox jumps over the lazy dog'
 arr = str.chars
 
 hh = Hash.new(0)
-arr.each do |letter|
-	hh[letter] += 1
+str.each_char do |letter|
+	if letter >= 'a' && letter <= 'z'
+		hh[letter] += 1
+	end
 end
 
 puts "In this sentence: #{str}"
