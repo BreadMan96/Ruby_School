@@ -1,52 +1,113 @@
-#cart-array
-cart = [
-{ type: :soccer_ball, qty: 2 },
-{ type: :golf_ball, qty: 2 }
-]
+class Robot
+	attr_accessor :x, :y
 
-order = Array.new
+	def initialize(options={})
+		@x = options[:x] || 0
+		@y = options[:y] || 0
+	end
 
-#inventory-hash
-inventory = {
-Soccer_ball: { available: 4, price_per_item: 100 },
-Tennis_ball: { available: 4, price_per_item: 30 },
-Golf_ball: { available: 4, price_per_item: 5 }
-}
+	def right
+		self.x += 1
+	end
 
-item = {
-	Soccer_ball: 1,
-	Tennis_ball: 2,
-	Golf_ball: 3
-}
+	def left
+		self.x -= 1
+	end
 
-inventory.keys.map.with_index { |key, i| puts "#{i+1}. #{key}" }
+	def up
+		self.y += 1
+	end
 
-print "What would you like to buy?(enter number): "
-buy = gets.strip.to_i
+	def down
+		self.y -= 1
+	end
 
-print "How much do you want to buy: "
-qty_item = gets.strip.to_i
+	def label
+		'*'
+	end
+end
 
-order = [
-	{ type: item.key(buy), qty: qty_item }
-]
+class Dog
+	attr_accessor :x, :y
 
-puts order
+	def initialize(options={})
+		@x = options[:x] || 0
+		@y = options[:y] || 0
+	end
 
-puts inventory[order(key)]
+	def right
+		self.x += 1
+	end
 
-#if order[type] > inventory[:order[type]] [:available]
-#	puts 10
-#end
+	def left
+	end
 
-total = 0
-tracking = rand(102857..955482)
+	def up
+	end
 
+	def down
+		self.y -= 1
+	end
 
+	def label
+		'@'
+	end
+end
 
+class Commander
+	def move(who)
+		m = [:right, :left, :up, :down].sample
+		who.send(m)
+	end
+end
 
+commander = Commander.new
 
+arr = Array.new(1) { Robot.new }
 
+arr.push(Dog.new(x: -12, y: 12))
+arr.push(Dog.new(x: -11, y: 11))
+arr.push(Dog.new(x: -10, y: 10))
 
+loop do
+	puts "\e[H\e[2J"
 
+	(12).downto(-12) do |y|
+		(-12).upto(12) do |x|
 
+			somebody = arr.find { |somebody| somebody.x == x && somebody.y == y }
+
+			if somebody
+				print somebody.label
+			else
+				print '.'
+			end
+
+		end
+		puts
+	end
+
+	game_over = arr.combination(2).any? do |a, b|
+		a.x == b.x && \
+		a.y == b.y && \
+		a.label != b.label
+	end
+
+	arr[1..3].each do |x|
+		if x.x == 12 || x.y == -12
+			puts "WIN!"
+			exit
+		end
+	end
+
+	if game_over
+		puts 'Game over'
+		exit
+	end
+
+	arr.each do |somebody|
+		commander.move(somebody)
+	end
+
+	sleep 0.1
+end
