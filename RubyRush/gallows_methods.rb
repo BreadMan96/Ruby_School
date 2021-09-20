@@ -1,7 +1,7 @@
 # Метод возвращает массив букв загаданного слова
 def get_letters
   print "Guess the word: "
-  slovo = gets.strip.to_s
+  slovo = gets.strip.downcase.to_s
 
   if slovo == nil || slovo == ''
     abort 'Enter the word!'
