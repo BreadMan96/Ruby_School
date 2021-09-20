@@ -1,15 +1,9 @@
-def new(n)
-	arr = [77,20,15,45]
-	arr2 = Array.new
-	n.times do |x|
-		arr2 << arr[x]
-	end
-	puts arr2
-end
 
+print "Guess the word: "
+slovo = gets.strip.to_s
 
-print "How many first elements to take?: "
-elements = gets.strip.to_i
+# Разбиваем слово на буквы специальным методом split, который есть у всех
+# объектов класса Строка.
+slovo = slovo.split("")
 
-puts new elements
-
+puts slovo[1]
