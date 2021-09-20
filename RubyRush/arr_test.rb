@@ -1,9 +1,26 @@
+class Athletes
+  def initialize(lastname)
+    @lastname = lastname
+    @features = {:Muscles => 0, :Relief => 0, :Strength => 0, :Endurance => 0}
+  end
 
-print "Guess the word: "
-slovo = gets.strip.to_s
+  def pump(what)
+    @features[what] += 1
+  end
 
-# Разбиваем слово на буквы специальным методом split, который есть у всех
-# объектов класса Строка.
-slovo = slovo.split("")
+  def stats
+    puts "#{@lastname} stats: "
+    @features.each do |k,v|
+      puts "#{k}: #{v}"
+    end
+    puts
+  end
+end
 
-puts slovo[1]
+panarin = Athletes.new(:Panarin)
+panarin.pump(:Relief)
+panarin.stats
+
+poirier = Athletes.new(:Poirier)
+poirier.pump(:Endurance)
+poirier.stats

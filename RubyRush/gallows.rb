@@ -1,29 +1,19 @@
-require_relative 'gallows_methods'
+require_relative 'gallows_game_class'
+require_relative 'gallows_result_class'
 
-puts "Gallows Game. Version 1.0 © BreadMan\n\n"
+printer = ResultPrinter.new
+
+puts "Gallows Game. Version 2.0.0 © BreadMan\n\n"
 sleep 1
 
-letters = get_letters
+print "Guess the word: "
+slovo = gets.strip.downcase.to_s
 
-errors = 0
+game = Game.new(slovo)
 
-good_letters = []
-bad_letters = []
-
-while errors < 7
-  print_status(letters, good_letters, bad_letters, errors)
-
-  print "\nType a letter: "
-  user_input = get_user_input
-
-  result = check_result(user_input, letters, good_letters, bad_letters)
-
-
-  if result == -1
-    errors += 1
-  elsif result == 1
-    break
-  end
+while game.status == 0
+  printer.print_status(game)
+  game.ask_next_letter
 end
 
-print_status(letters, good_letters, bad_letters, errors)
+printer.print_status(game)
