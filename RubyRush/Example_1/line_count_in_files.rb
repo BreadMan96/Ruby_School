@@ -22,6 +22,7 @@ if File.exist?(file_path)
   		puts "#{i+1}. #{x}"
   	end
   end
+  file.close
 else
   puts "File not found!"
 end
