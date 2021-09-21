@@ -35,7 +35,7 @@ class ResultPrinter
 
   def print_viselitsa(errors)
     case errors
-   when 1
+    when 1
       puts '
         _______
         |/
