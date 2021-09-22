@@ -46,7 +46,7 @@ class Game
     else
       @bad_letters << letter
       @errors += 1
-      if @errors >= 7
+      if @errors >= 5
         @status = -1
       end
     end

@@ -1,13 +1,18 @@
 require_relative 'gallows_game_class'
 require_relative 'gallows_result_class'
 
-printer = ResultPrinter.new
+current_path = File.dirname(__FILE__) 
+file_path = current_path + "/data/words_for_gallows"
+
+file = File.open file_path, "r"
+lines = file.readlines
+
+printer = ResultPrinter.new 
 
 puts "Gallows Game. Version 2.0.0 © BreadMan\n\n"
 sleep 1
 
-print "Guess the word: "
-slovo = gets.strip.downcase.to_s
+slovo = lines.sample.strip
 
 game = Game.new(slovo)
 
