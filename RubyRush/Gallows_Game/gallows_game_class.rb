@@ -8,7 +8,7 @@ class Game
     @good_letters = []
     @bad_letters = []
 
-    #индикатор состояния игры (см. метод get_status)
+    #индикатор состояния игры (метод get_status)
     @status = 0
   end
 
