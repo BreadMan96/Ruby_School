@@ -1,5 +1,5 @@
 class Book < Product
-	attr_reader :name_book, :genre_book, :author_book
+	attr_accessor :name_book, :genre_book, :author_book
 
 	def initialize(params)
 		super
