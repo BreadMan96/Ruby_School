@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<business_card>
+  <first_name>Vladislav</first_name>
+  <second_name>BreadMan</second_name>
+  <last_name>Borodin</last_name>
+  <phone>+7 999 155-69-**</phone>
+  <email>breadman.v96@gmail.com</email>
+  <skills>Ruby Programmer / Blogger</skills>
+</business_card>
