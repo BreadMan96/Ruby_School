@@ -7,10 +7,10 @@
     <book title="Habits of a Happy Brain" author_name="Loretta Graziano Breuning"></book>
   </product>
   <product price="100" amount_available="50">
-    <disk album_name="CS 1.6" artist_name="Valve" genre="Action"></disk>
+    <disk game_name="CS 1.6" creator="Valve" genre="Action"></disk>
   </product>
   <product price="150" amount_available="100">
-    <disk album_name="Dota 2" artist_name="Valve" genre="RPG"></disk>
+    <disk game_name="Dota 2" creator="Valve" genre="RPG"></disk>
   </product>
   <product price="250" amount_available="1000">
     <movie title="Avengers: Endgame" director_name="Anthony Russo, Joe Russo" year="2019"></movie>

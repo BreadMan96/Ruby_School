@@ -22,7 +22,7 @@ class Product
     puts "What do you want to buy?\n\n"
 
     products.each_with_index do |product, index|
-      puts "#{index}: #{product.show}"
+      puts "#{index+1}: #{product.show}"
     end
 
     puts "'X'. Leave the store\n\n"
