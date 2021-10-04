@@ -9,7 +9,7 @@ lines = file.readlines
 
 printer = ResultPrinter.new 
 
-puts "Gallows Game. Version 2.0.0 © BreadMan\n\n"
+puts "Gallows Game. Version 3.0.0 © BreadMan\n\n"
 sleep 1
 
 slovo = lines.sample.strip
